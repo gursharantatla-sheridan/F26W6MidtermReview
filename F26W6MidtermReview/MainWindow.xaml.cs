@@ -98,5 +98,41 @@ namespace F26W6MidtermReview
                 }
             }
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstEmployees.SelectedIndex >= 0)
+            {
+                // edit existing emp
+                EditEmployee();
+            }
+            else
+            {
+                // add new emp
+            }
+        }
+
+        private void EditEmployee()
+        {
+            var emp = _employees[lstEmployees.SelectedIndex];
+
+            emp.Name = txtName.Text;
+            emp.EmpType = (EmployeeType)cmbType.SelectedIndex;
+            emp.IsUnionMember = (bool)chkIsUnionMember.IsChecked!;
+
+            if (emp is HourlyEmployee hrEmp)
+            {
+                hrEmp.Hours = int.Parse(txtHoursOrGrossSales.Text);
+                hrEmp.Wage = double.Parse(txtWageOrCommRate.Text);
+            }
+            else if (emp is CommissionEmployee commEmp)
+            {
+                commEmp.GrossSales = double.Parse(txtHoursOrGrossSales.Text);
+                commEmp.CommissionRate = double.Parse(txtWageOrCommRate.Text) / 100;
+            }
+
+            RefreshListBox();
+            MessageBox.Show("Employee updated");
+        }
     }
 }
