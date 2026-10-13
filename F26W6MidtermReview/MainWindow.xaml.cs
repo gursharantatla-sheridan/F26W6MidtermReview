@@ -24,6 +24,9 @@ namespace F26W6MidtermReview
 
             rdoHourly.IsChecked = true;
             lblPercentageSymbol.Visibility = Visibility.Hidden;
+
+            GenerateEmployeeData();
+            RefreshListBox();
         }
 
         private void rdoHourly_Checked(object sender, RoutedEventArgs e)
@@ -54,6 +57,14 @@ namespace F26W6MidtermReview
                 new CommissionEmployee(5, "James", EmployeeType.FullTime, true, 10000, 0.10),
                 new CommissionEmployee(6, "Megan", EmployeeType.PartTime, false, 12000, 0.08)
             };
+        }
+
+        private void RefreshListBox()
+        {
+            var names = from e in _employees
+                        select e.Name;
+
+            lstEmployees.ItemsSource = names;
         }
     }
 }
