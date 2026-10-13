@@ -109,6 +109,7 @@ namespace F26W6MidtermReview
             else
             {
                 // add new emp
+                AddEmployee();
             }
         }
 
@@ -133,6 +134,43 @@ namespace F26W6MidtermReview
 
             RefreshListBox();
             MessageBox.Show("Employee updated");
+        }
+
+        private void AddEmployee()
+        {
+            int newId = 1;
+
+            if (_employees.Count > 0)
+                newId = _employees.Last().Id + 1;  // last emp ID + 1
+
+            string name = txtName.Text;
+            EmployeeType empType = (EmployeeType)cmbType.SelectedIndex;
+            bool isUnionMember = (bool)chkIsUnionMember.IsChecked!;
+
+            if (rdoHourly.IsChecked == true)
+            {
+                int hours = int.Parse(txtHoursOrGrossSales.Text);
+                double wage = double.Parse(txtWageOrCommRate.Text);
+
+                HourlyEmployee hrEmp = new HourlyEmployee(newId, name, empType, isUnionMember, hours, wage);
+                _employees.Add(hrEmp);
+            }
+            else
+            {
+                double grossSales = double.Parse(txtHoursOrGrossSales.Text);
+                double commRate = double.Parse(txtWageOrCommRate.Text) / 100;
+
+                CommissionEmployee commEmp = new CommissionEmployee(newId, name, empType, isUnionMember, grossSales, commRate);
+                _employees.Add(commEmp);
+            }
+
+            RefreshListBox();
+            MessageBox.Show("New employee added");
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -45,7 +45,7 @@
         <Label x:Name="lblEarnings" Content="" Canvas.Left="433" Canvas.Top="355" HorizontalAlignment="Left" VerticalAlignment="Center" Width="133" FontSize="16" FontWeight="Bold" Background="DarkBlue" Foreground="White" BorderBrush="Black" BorderThickness="1"/>
 
         <Button x:Name="btnSave" Content="Save" Canvas.Left="617" Canvas.Top="111" Height="32" Width="111" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Background="RoyalBlue" Foreground="White" Click="btnSave_Click"/>
-        <Button x:Name="btnDelete" Content="Delete" Canvas.Left="617" Canvas.Top="190" Height="32" Width="111" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="RoyalBlue" Foreground="White"/>
+        <Button x:Name="btnDelete" Content="Delete" Canvas.Left="617" Canvas.Top="190" Height="32" Width="111" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="RoyalBlue" Foreground="White" Click="btnDelete_Click"/>
         <Button x:Name="btnClear" Content="Clear" Canvas.Left="617" Canvas.Top="269" Height="32" Width="111" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="RoyalBlue" Foreground="White"/>
 
     </Canvas>
