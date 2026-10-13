@@ -10,7 +10,7 @@
     <Canvas Background="PowderBlue">
 
         <Button x:Name="btnResetListBox" Content="Reset ListBox to Default" Canvas.Left="35" Canvas.Top="35" Height="32" Width="250" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="RoyalBlue" Foreground="White"/>
-        <ListBox x:Name="lstEmployees" Height="308" Width="250" Canvas.Left="35" Canvas.Top="78" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="LightYellow" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ListBox x:Name="lstEmployees" Height="308" Width="250" Canvas.Left="35" Canvas.Top="78" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Background="LightYellow" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="lstEmployees_SelectionChanged"/>
 
         <GroupBox Height="68" Header="Employee Category" Width="295" Canvas.Left="433" Canvas.Top="17" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontWeight="Bold">
             <StackPanel Orientation="Horizontal" Margin="5">

@@ -66,5 +66,37 @@ namespace F26W6MidtermReview
 
             lstEmployees.ItemsSource = names;
         }
+
+        private void lstEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstEmployees.SelectedIndex >= 0)
+            {
+                var selectedEmp = _employees[lstEmployees.SelectedIndex];
+
+                txtId.Text = selectedEmp.Id.ToString();
+                txtName.Text = selectedEmp.Name;
+                cmbType.Text = selectedEmp.EmpType.ToString();
+                chkIsUnionMember.IsChecked = selectedEmp.IsUnionMember;
+
+                lblEarnings.Content = selectedEmp.Earnings().ToString("C");
+
+                if (selectedEmp is HourlyEmployee hrEmp)
+                {
+                    rdoHourly.IsChecked = true;
+
+                    //HourlyEmployee hrEmp = selectedEmp as HourlyEmployee;
+
+                    txtHoursOrGrossSales.Text = hrEmp.Hours.ToString();
+                    txtWageOrCommRate.Text = hrEmp.Wage.ToString();
+                }
+                else if (selectedEmp is CommissionEmployee commEmp)
+                {
+                    rdoCommission.IsChecked = true;
+
+                    txtHoursOrGrossSales.Text = commEmp.GrossSales.ToString();
+                    txtWageOrCommRate.Text = (commEmp.CommissionRate * 100).ToString();
+                }
+            }
+        }
     }
 }
