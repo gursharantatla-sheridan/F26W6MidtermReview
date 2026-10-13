@@ -39,5 +39,21 @@ namespace F26W6MidtermReview
             lblWageOrCommRate.Content = "Commission Rate";
             lblPercentageSymbol.Visibility = Visibility.Visible;
         }
+
+        private void GenerateEmployeeData()
+        {
+            _employees = new List<Employee>()
+            {
+                // hourly emps
+                new HourlyEmployee(1, "John", EmployeeType.FullTime, true, 40, 30),
+                new HourlyEmployee(2, "Anne", EmployeeType.PartTime, true, 55, 20),
+                new HourlyEmployee(3, "Mark", EmployeeType.Contractor, false, 30, 18),
+
+                // comm emps
+                new CommissionEmployee(4, "Alice", EmployeeType.FullTime, true, 15000, 0.12),
+                new CommissionEmployee(5, "James", EmployeeType.FullTime, true, 10000, 0.10),
+                new CommissionEmployee(6, "Megan", EmployeeType.PartTime, false, 12000, 0.08)
+            };
+        }
     }
 }
