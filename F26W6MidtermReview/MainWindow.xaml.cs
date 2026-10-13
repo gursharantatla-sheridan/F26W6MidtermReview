@@ -16,9 +16,28 @@ namespace F26W6MidtermReview
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Employee> _employees;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            rdoHourly.IsChecked = true;
+            lblPercentageSymbol.Visibility = Visibility.Hidden;
+        }
+
+        private void rdoHourly_Checked(object sender, RoutedEventArgs e)
+        {
+            lblHoursOrGrossSales.Content = "Hours";
+            lblWageOrCommRate.Content = "Wage";
+            lblPercentageSymbol.Visibility = Visibility.Hidden;
+        }
+
+        private void rdoCommission_Checked(object sender, RoutedEventArgs e)
+        {
+            lblHoursOrGrossSales.Content = "Gross Sales";
+            lblWageOrCommRate.Content = "Commission Rate";
+            lblPercentageSymbol.Visibility = Visibility.Visible;
         }
     }
 }
