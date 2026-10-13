@@ -170,7 +170,33 @@ namespace F26W6MidtermReview
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var emp = _employees[lstEmployees.SelectedIndex];
+            _employees.Remove(emp);
 
+            RefreshListBox();
+            ClearData();
+            MessageBox.Show("Employee deleted");
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            ClearData();
+        }
+
+        private void ClearData()
+        {
+            rdoHourly.IsChecked = true;
+            txtId.Text = txtName.Text = txtHoursOrGrossSales.Text = txtWageOrCommRate.Text = "";
+            cmbType.SelectedIndex = -1;
+            chkIsUnionMember.IsChecked = false;
+            lblEarnings.Content = "";
+        }
+
+        private void btnResetListBox_Click(object sender, RoutedEventArgs e)
+        {
+            ClearData();
+            GenerateEmployeeData();
+            RefreshListBox();
         }
     }
 }
